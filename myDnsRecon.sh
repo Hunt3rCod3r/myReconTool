@@ -2,7 +2,7 @@
 
 domain=$1
 wordlist=$2
-resolvers="/home/cyberhunter/pentest/wordlists/resolvers.txt"
+resolvers="$HOME/pentest/wordlists/resolvers.txt"
 
 if [ $# -lt 1 ]
 then
@@ -12,7 +12,7 @@ fi
 
 if [ $# -lt 2 ]
 then
-   wordlist="/home/cyberhunter/pentest/wordlists/SecLists/Discovery/DNS/namelist.txt"
+   wordlist="$HOME/pentest/wordlists/SecLists/Discovery/DNS/namelist.txt"
 fi
 
 echo "WordList : $wordlist"
@@ -48,20 +48,20 @@ if [ $input == "y" ]
 then
     read -p "InteractSH-URL (ex: https://azdjzdojdfhzifzrfurhfurf.interact.sh):   " interact
     scanner(){
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/cves/ -c 100 -iserver $interact -o $domain/recon/nuclei/cves.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/vulnerabilities/ -c 100 -iserver $interact -o $domain/recon/nuclei/vulnerabilities.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/file/ -c 100 -iserver $interact -o $domain/recon/nuclei/file.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/technologies/ -c 100 -iserver $interact -o $domain/recon/nuclei/technologies.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/misconfiguration/ -c 100 -iserver $interact -o $domain/recon/nuclei/misconfiguration.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/miscellaneous/ -c 100 -iserver $interact -o $domain/recon/nuclei/miscellaneous.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/fuzzing/ -c 100 -iserver $interact -o $domain/recon/nuclei/fuzzing.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/exposures/ -c 100 -iserver $interact -o $domain/recon/nuclei/exposures.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/exposed-panels/ -c 100 -iserver $interact -o $domain/recon/nuclei/exposed-panels.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/cnvd/ -c 100 -iserver $interact -o $domain/recon/nuclei/cnvd.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/default-logins/ -c 100 -iserver $interact -o $domain/recon/nuclei/default-logins.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/takeovers/ -c 100 -iserver $interact -o $domain/recon/nuclei/takeovers.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/token-spray/ -c 100 -iserver $interact -o $domain/recon/nuclei/token-spray.txt
-    cat $domain/recon.txt | nuclei -t /home/cyberhunter/nuclei-templates/workflows/ -c 100 -iserver $interact -o $domain/recon/nuclei/workflows.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/cves/ -c 100 -iserver $interact -o $domain/recon/nuclei/cves.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/vulnerabilities/ -c 100 -iserver $interact -o $domain/recon/nuclei/vulnerabilities.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/file/ -c 100 -iserver $interact -o $domain/recon/nuclei/file.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/technologies/ -c 100 -iserver $interact -o $domain/recon/nuclei/technologies.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/misconfiguration/ -c 100 -iserver $interact -o $domain/recon/nuclei/misconfiguration.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/miscellaneous/ -c 100 -iserver $interact -o $domain/recon/nuclei/miscellaneous.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/fuzzing/ -c 100 -iserver $interact -o $domain/recon/nuclei/fuzzing.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/exposures/ -c 100 -iserver $interact -o $domain/recon/nuclei/exposures.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/exposed-panels/ -c 100 -iserver $interact -o $domain/recon/nuclei/exposed-panels.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/cnvd/ -c 100 -iserver $interact -o $domain/recon/nuclei/cnvd.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/default-logins/ -c 100 -iserver $interact -o $domain/recon/nuclei/default-logins.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/takeovers/ -c 100 -iserver $interact -o $domain/recon/nuclei/takeovers.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/token-spray/ -c 100 -iserver $interact -o $domain/recon/nuclei/token-spray.txt
+    cat $domain/recon.txt | nuclei -t $HOME/nuclei-templates/workflows/ -c 100 -iserver $interact -o $domain/recon/nuclei/workflows.txt
 }
     echo "execute Nuclei ..." && scanner
 else
