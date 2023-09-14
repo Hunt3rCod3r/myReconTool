@@ -6,7 +6,6 @@ wordlist="$2"
 resolvers="resolvers.txt"
 timestamp=$(date +%s)
 
-read -p "User-Agent ?:" uagent
 
 # Help
 if [ $# -lt 1 ]
@@ -19,6 +18,8 @@ if [ $# -lt 2 ]
 then
    wordlist="n0kovo_small_dns.txt"
 fi
+
+read -p "User-Agent ?:" uagent
 
 # Create structure & Download utils
 mkdir -p $domain $domain/subdomains $domain/ip $domain/urls $domain/lists $domain/httpx
